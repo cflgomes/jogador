@@ -25,6 +25,6 @@ app.controller('mostraJogador', function(){
     this.objecto = jogadores;
 })
 
-app.controller('')
+
 
 })();
