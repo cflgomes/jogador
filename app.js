@@ -25,6 +25,14 @@ app.controller('mostraJogador', function(){
     this.objecto = jogadores;
 })
 
-
+app.controller('PanelController', function(){
+    this.tabulador = 1;
+    this.setTabulador = function(settab){
+        this.tabulador = settab;
+    }
+    this.isSelected = function(checktab){
+        return this.tabulador === checktab;
+    }
+})
 
 })();
