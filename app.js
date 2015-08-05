@@ -8,6 +8,13 @@
             idade: '38',
             substituir: true,
             substituido: false,
+            caracteristicas: [
+                {
+                    votos: 5,
+                    comentario: "Excelente pé esquerdo",
+                    autor: "cflgomes@gmail.com"
+                }
+            ]
         },
 
         {
@@ -33,6 +40,14 @@ app.controller('PanelController', function(){
     this.isSelected = function(checktab){
         return this.tabulador === checktab;
     }
+})
+app.controller('CaracteristicasController', function(){
+    this.carateristica={};
+    this.envio = function(carac){
+        carac.caracteristicas.push(this.caracteristica);
+        this.caracteristica = {};
+    }
+
 })
 
 })();

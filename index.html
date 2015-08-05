@@ -44,9 +44,12 @@
                                 <a href ng-click="panel.setTabulador(2)">golos</a>
 
                             </li>
+                            <li role="presentation" ng-class="{active:panel.isSelected(3)">
+                                <a href ng-click="panel.setTabulador(3)">Caracteristicas</a>
+                            </li>
 
             </ul>
-            <div class="panelio" ng-show="panel.isSelected(1)">
+            <div class="panel" ng-show="panel.isSelected(1)">
                 <h1>jogador</h1>
                 <p>{{jogador.nome}}</p>
             </div>
@@ -54,6 +57,28 @@
                 <h1>jogador</h1>
                 <p>{{jogador.numero}}</p>
             </div>
+            <div class="panel" ng-show="panel.isSelected(3)">
+                <h3>Caracteristicas</h3>
+
+                <blockquote ng-repeat="caract in jogador.caracteristicas">
+                    <p>Votaçao: {{caract.votos}}</p>
+                    <p>Messagem: {{caract.comentario}}</p>
+                </blockquote>
+
+            </div>
+            <form name="comentariosplayer" ng-controller="CaracteristicasController as caractCtrl" ng-submit="caractCtrl.envio(carac)">
+                <blockquote>
+                    <b>Votos: {{caractCtrl.caracteristica.votos}}</b>{{caractCtrl.caracteristica.comentario}}
+                </blockquote>
+                <select ng-model="caractCtrl.caracteristica.votos">
+                    <option value="1">1 estrela</option>
+                    <option value="2">2 estrelas</option>
+                </select>
+                <textarea ng-model="caractCtrl.caracteristica.comentario"></textarea>
+                <label>by:</label>
+                <input type="email" />
+                <input type="submit" value="Enviar" />
+            </form>
         </section>
     </div>
     </div>
